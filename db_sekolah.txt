@@ -1,0 +1,84 @@
+Microsoft Windows [Version 10.0.26200.6584]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\user> cd C:\xampp
+
+C:\xampp> cd C:\xampp\mysql\bin
+
+C:\xampp\mysql\bin> mysql -u root -p
+Enter password:
+ERROR 2002 (HY000): Can't connect to MySQL server on 'localhost' (10061)
+
+C:\xampp\mysql\bin>
+C:\xampp\mysql\bin>  mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 8
+Server version: 10.4.32-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| e_commerce_atk     |
+| ecommerce_atk      |
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| siswa_rpl2         |
+| test               |
++--------------------+
+8 rows in set (0.057 sec)
+
+MariaDB [(none)]> create database siswa;
+Query OK, 1 row affected (0.002 sec)
+
+MariaDB [(none)]> use siswa
+Database changed
+MariaDB [siswa]> create table siswa(
+    -> id int (11)Auto_increment Primary Key,
+    -> nama varchar (100),
+    -> umur INT,
+    -> Kelas varchar(10),
+    -> alamat Text
+    -> );
+Query OK, 0 rows affected (0.024 sec)
+
+MariaDB [siswa]> nsert into siswa(nama,umur,Kelas,alamat)values
+    -> ('Naufal khairan','15','XIRPL2','Jl.Simpang limun');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'nsert into siswa(nama,umur,Kelas,alamat)values
+('Naufal khairan','15','XIRPL2...' at line 1
+MariaDB [siswa]> insert into siswa(nama,umur,Kelas,alamat)values
+    -> ('naufal khairan','15,'XIRPL2','jl.simpang limun')
+    '>
+    '> ('naufal khairan','15,'XIRPL2','jl.simpang limun');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'XIRPL2','jl.simpang limun')
+
+('naufal khairan','15,'XIRPL2','jl.simpang limun')' at line 2
+MariaDB [siswa]>
+MariaDB [siswa]> insert into siswa(nama,umur,Kelas,alamat)values
+    -> ('naufal khairan','15','XIRPL2','jl.simpang limun');
+Query OK, 1 row affected (0.051 sec)
+
+MariaDB [siswa]> show tables;
++-----------------+
+| Tables_in_siswa |
++-----------------+
+| siswa           |
++-----------------+
+1 row in set (0.001 sec)
+
+MariaDB [siswa]> select*from siswa;
++----+----------------+------+--------+------------------+
+| id | nama           | umur | Kelas  | alamat           |
++----+----------------+------+--------+------------------+
+|  1 | naufal khairan |   15 | XIRPL2 | jl.simpang limun |
++----+----------------+------+--------+------------------+
+1 row in set (0.005 sec)
+
+MariaDB [siswa]>
